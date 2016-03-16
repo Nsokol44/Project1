@@ -27,7 +27,7 @@ var infowindow = new google.maps.InfoWindow();
 map.data.addListener('click', function(event) {
   // in the geojson feature that was clicked, get the "place" and "mag" attributes
   var place = event.feature.getProperty("STATE");
-  var data = event.feature.getProperty("DATA_BEGIN_DATE");
+  var data = event.feature.getProperty("ELEVATION");
   var html = data + place; // combine place and data, inserting additional text between them
   infowindow.setContent(html); // show the html variable in the infowindow
   infowindow.setPosition(event.feature.getGeometry().get()); // anchor the infowindow at the marker
