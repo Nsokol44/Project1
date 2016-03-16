@@ -18,7 +18,7 @@ function initMap() {
     center: {lat: 30, lng: -90}
   });
 
-map.data.loadGeoJson('http://data.wake.opendata.arcgis.com/datasets/e971bec1f1d94c9d927548b6d45455d4_0.geojson');
+map.data.loadGeoJson('https://opendata.arcgis.com/datasets/17b9eb53cf4a4792b9889b8a87efef43_3.geojson');
 
 //create layers that will go in the toggle.
 layers[0] = new google.maps.KmlLayer({
