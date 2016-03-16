@@ -18,16 +18,8 @@ function initMap() {
     center: {lat: 30, lng: -90}
   });
 
-//create layers that will go in the toggle.
-layers[0] = new google.maps.KmlLayer({
-    url: 'http://www.srh.noaa.gov/gis/kml/raws/rawslink.kml',
-    map: map,
- preserveViewport: true});
-layers[1] = new google.maps.KmlLayer({
-    url: 'http://www.srh.noaa.gov/gis/kml/cod/susLink.kml',
-    map: map,
-preserveViewport: true});
-layers[2] = map.data.loadGeoJson('https://opendata.arcgis.com/datasets/11a4c0d646544b3ba7290c100dacfa8a_0.geojson')
+// Add a GeoJSON file to the map.
+map.data.loadGeoJson('https://opendata.arcgis.com/datasets/11a4c0d646544b3ba7290c100dacfa8a_0.geojson');
 
 // Create an infowindow object to use later
 var infowindow = new google.maps.InfoWindow();
@@ -45,5 +37,10 @@ map.data.addListener('click', function(event) {
   infowindow.setOptions({pixelOffset: new google.maps.Size(0,-30)}); // move the infowindow up slightly to the top of the marker icon
   infowindow.open(map);
 });
+//create layers that will go in the toggle.
+layers[0] = new google.maps.KmlLayer({
+    url: 'http://www.srh.noaa.gov/gis/kml/cod/susLink.kml',
+    map: map,
+preserveViewport: true});
 }
 
