@@ -17,21 +17,6 @@ var OpenStreetMap = L.tileLayer('http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/
   attribution: '&copy; Openstreetmap France | &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 });
 
-// I could not find a geoJSON layer that would
-var featuregroup = L.layerGroup();
-
-function addpopup( feature, layer ){
-  var html = layers.id1 + layers.id3;
-  layer.bindPopup( html );
-
-  // NEW: add the current earthquake point to the group
-  featuregroup.addLayer( layer );
-}
-
-$.getJSON( "http://nowcoast.noaa.gov/arcgis/rest/services/nowcoast/wwa_meteoceanhydro_shortduration_hazards_warnings_time/MapServer?f=pjson", function( geojsonFeatures ){
-  L.geoJson( geojsonFeatures, { onEachFeature: addpopup } )
-});
-
 // Extract lihgtning data from NOAA, then call it as a raster layer to the map.
 var lightning = L.tileLayer.wms("http://nowcoast.noaa.gov/arcgis/services/nowcoast/sat_meteo_emulated_imagery_lightningstrikedensity_goes_time/MapServer/WMSServer", {
   layers: '1', 
