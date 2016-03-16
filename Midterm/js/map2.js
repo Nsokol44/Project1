@@ -18,7 +18,7 @@ function initMap() {
     center: {lat: 30, lng: -90}
   });
 // Add a GeoJSON file to the map.
-map.data.loadGeoJson('http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson');
+map.data.loadGeoJson('https://opendata.arcgis.com/datasets/11a4c0d646544b3ba7290c100dacfa8a_0.geojson');
 
 // Create an infowindow object to use later
 var infowindow = new google.maps.InfoWindow();
@@ -28,9 +28,9 @@ var infowindow = new google.maps.InfoWindow();
  */
 map.data.addListener('click', function(event) {
   // in the geojson feature that was clicked, get the "place" and "mag" attributes
-  var place = event.feature.getProperty("place");
-  var magnitude = event.feature.getProperty("mag");
-  var html = magnitude + ' magnitude, ' + place; // combine place and magnitude, inserting additional text between them
+  var place = event.feature.getProperty("STATION");
+  var dew = event.feature.getProperty("YR5_DEW_JAN_ALL");
+  var html = dew + ' Dew Point, ' + place; // inserting additional text between them
   infowindow.setContent(html); // show the html variable in the infowindow
   infowindow.setPosition(event.feature.getGeometry().get()); // anchor the infowindow at the marker
   infowindow.setOptions({pixelOffset: new google.maps.Size(0,-30)}); // move the infowindow up slightly to the top of the marker icon
