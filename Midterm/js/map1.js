@@ -64,7 +64,6 @@ var overlayMaps = {
   "Temperature": temperature,
   "Precipitation": precipitation,
   "Wind Speed": windspeed,
-  "Warnings": featuregroup,
   }; 
 
 // By writing out this command it adds control functions to the map, which allows you to toggle through the variables previously made in the script.
